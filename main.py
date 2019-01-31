@@ -408,7 +408,7 @@ def iskonto():
 def ozelekle():
     if request.method == 'POST':
         if not user_dic['table{}'.format(ip_dic[request.remote_addr][0])]['orders'][0]:
-            user_dic['table{}'.format(ip_dic[request.remote_addr][0])]['saati'] = strftime("%d/%m/%Y %H:%M:%S")
+            user_dic['table{}'.format(ip_dic[request.remote_addr][0])]['hour'] = strftime("%d/%m/%Y %H:%M:%S")
         user_dic['table{}'.format(ip_dic[request.remote_addr][0])]['orders'][0] = [1, 0, 0]
 
         result = request.form
@@ -438,7 +438,7 @@ def hello_name(name):
         ip_dic[request.remote_addr][1] = comingfrom
 
         global acilmasaati
-        acilmasaati = user_dic['table{}'.format(ip_dic[request.remote_addr][0])]['saati']
+        acilmasaati = user_dic['table{}'.format(ip_dic[request.remote_addr][0])]['hour']
 
         if user_dic['table{}'.format(ip_dic[request.remote_addr][0])]['orders'][0]:
             active_orders = user_dic['table{}'.format(ip_dic[request.remote_addr][0])]['orders']
@@ -665,7 +665,7 @@ def hello_name(name):
                 writer = csv.writer(fd, delimiter=';')
                 for i in range(1, len(o_table['orders'])):
                     writer.writerow(
-                        ["Table {}".format(o_table['tableno']), o_table['saati'], strftime("%d/%m/%Y %H:%M:%S"),
+                        ["Table {}".format(o_table['tableno']), o_table['hour'], strftime("%d/%m/%Y %H:%M:%S"),
                          o_table['orders'][i][0], o_table['orders'][i][1], o_table['orders'][i][2],
                          o_table['orders'][i][1] * o_table['orders'][i][2]])
         else:
@@ -679,12 +679,12 @@ def hello_name(name):
                 writer = csv.writer(fd, delimiter=';')
                 for i in range(1, len(o_table['orders'])):
                     writer.writerow(
-                        ["Table {}".format(o_table['tableno']), o_table['saati'], strftime("%d/%m/%Y %H:%M:%S"),
+                        ["Table {}".format(o_table['tableno']), o_table['hour'], strftime("%d/%m/%Y %H:%M:%S"),
                          o_table['orders'][i][0], o_table['orders'][i][1], o_table['orders'][i][2],
                          o_table['orders'][i][1] * o_table['orders'][i][2]])
 
         user_dic['table{}'.format(ip_dic[request.remote_addr][0])]['orders'] = [[]]
-        user_dic['table{}'.format(ip_dic[request.remote_addr][0])]['saati'] = ''
+        user_dic['table{}'.format(ip_dic[request.remote_addr][0])]['hour'] = ''
 
         with open('tables.json', 'w', encoding='utf-8') as json_file:
             json.dump(user_dic, json_file, ensure_ascii=False, indent=4)
@@ -693,7 +693,7 @@ def hello_name(name):
 
     if name == "sifirla":
         user_dic['table{}'.format(ip_dic[request.remote_addr][0])]['orders'] = [[]]
-        user_dic['table{}'.format(ip_dic[request.remote_addr][0])]['saati'] = ''
+        user_dic['table{}'.format(ip_dic[request.remote_addr][0])]['hour'] = ''
 
         with open('tables.json', 'w', encoding='utf-8') as json_file:
             json.dump(user_dic, json_file, ensure_ascii=False, indent=4)
@@ -702,7 +702,7 @@ def hello_name(name):
 
     if name[len(name) - 5:-1] == 'ekle':
         if not user_dic['table{}'.format(ip_dic[request.remote_addr][0])]['orders'][0]:
-            user_dic['table{}'.format(ip_dic[request.remote_addr][0])]['saati'] = strftime("%d/%m/%Y %H:%M:%S")
+            user_dic['table{}'.format(ip_dic[request.remote_addr][0])]['hour'] = strftime("%d/%m/%Y %H:%M:%S")
         user_dic['table{}'.format(ip_dic[request.remote_addr][0])]['orders'][0] = [1, 0, 0]
         kontrol = 0
         for item in user_dic['table{}'.format(ip_dic[request.remote_addr][0])]['orders']:
