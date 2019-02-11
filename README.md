@@ -11,15 +11,6 @@
   </div>
 </div>
 
-<div class="row">
-  <div class="column">
-    <img src="http://leventguner.net/order_management/table_add_item.png" width="200" title="hover text">
-  </div>
-  <div class="column">
-    <img src="http://leventguner.net/order_management/table_get_check.png" width="200" title="hover text">
-  </div>
-</div>
-
 
 
 
