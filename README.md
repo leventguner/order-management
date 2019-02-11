@@ -1,4 +1,26 @@
 # order_management
+<head>
+<style>
+* {
+  box-sizing: border-box;
+}
+
+.column {
+  float: left;
+  width: 33.33%;
+  padding: 5px;
+}
+
+/* Clearfix (clear floats) */
+.row::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+</style>
+</head>
+
+<body>
 <div class="row">
   <div class="column">
     <img src="http://leventguner.net/order_management/main_menu.png" style="width:100%" title="hover text">
@@ -20,11 +42,4 @@
   </div>
 </div>
 
-
-
-
-
-![All Tables]
-![Table Page]
-![Add Item to a Table]
-![Get Check of a Table]
+</body>
