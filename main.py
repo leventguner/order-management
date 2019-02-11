@@ -375,7 +375,7 @@ def hello_name(name):
         if int(strftime("%H")) < 7:
             yesterday = date.today() - timedelta(1)
 
-            directory = 'Gunsonlari/{0}/{1}'.format(yesterday.strftime("%Y"), yesterday.strftime("%m"))
+            directory = 'end_of_days/{0}/{1}'.format(yesterday.strftime("%Y"), yesterday.strftime("%m"))
             if not os.path.exists(directory):
                 os.makedirs(directory)
 
@@ -389,7 +389,7 @@ def hello_name(name):
                          o_table['orders'][i][1] * o_table['orders'][i][2]])
         else:
 
-            directory = 'Gunsonlari/{0}/{1}'.format(strftime("%Y"), strftime("%m"))
+            directory = 'end_of_days/{0}/{1}'.format(strftime("%Y"), strftime("%m"))
             if not os.path.exists(directory):
                 os.makedirs(directory)
 
